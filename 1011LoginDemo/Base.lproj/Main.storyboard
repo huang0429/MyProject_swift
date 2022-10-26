@@ -27,7 +27,7 @@
                                 <rect key="frame" x="63" y="269.99999999999989" width="265" height="38.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAZ-gd-iL0">
                                 <rect key="frame" x="102" y="367" width="187" height="35"/>
@@ -121,7 +121,7 @@
                                 <rect key="frame" x="80" y="282.99999999999989" width="230" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="中文姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIT-7T-Jqy">
                                 <rect key="frame" x="80" y="335" width="230" height="41"/>
@@ -133,7 +133,7 @@
                                 <rect key="frame" x="80" y="391" width="230" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-A7-wMm">
                                 <rect key="frame" x="101" y="474" width="188" height="49"/>
@@ -321,7 +321,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="doInquireButton:" destination="AqI-Ol-Jei" eventType="touchUpInside" id="TAj-XR-ovz"/>
-                                    <segue destination="Tkb-hv-mk6" kind="show" identifier="nextPageSegue" destinationCreationSelector="nextpageSegue:" id="Fsf-gX-xRh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -332,6 +331,7 @@
                     <connections>
                         <outlet property="QRCodeProjection" destination="1ki-J3-ULX" id="Whe-KH-Ppu"/>
                         <outlet property="outputlabel" destination="Iwe-o4-Qtz" id="p4i-eK-gEy"/>
+                        <segue destination="Tkb-hv-mk6" kind="show" identifier="nextPageSegue" destinationCreationSelector="nextpageSegue:" id="FyF-4D-715"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVg-Tw-QPJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -433,7 +433,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6k-bj-pD2">
-                                <rect key="frame" x="151" y="244" width="102" height="44"/>
+                                <rect key="frame" x="151" y="244" width="207" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.61647790670000002" green="0.6156054057" blue="0.55662282559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -454,7 +454,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzw-Qh-0eL">
-                                <rect key="frame" x="190" y="517" width="151" height="44"/>
+                                <rect key="frame" x="190" y="517" width="176" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.61647790670000002" green="0.6156054057" blue="0.55662282559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

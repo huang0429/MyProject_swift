@@ -12,8 +12,8 @@ class NextPageViewController: UIViewController {
     
     var studentItem = [newtPageData]()
     
-    let URL_USER_LOGIN = "http://192.168.239.113:8080/LoginDemo/v1/getNextPageData.php"
-
+    var dataText: String!
+    
     @IBOutlet weak var nextPageLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
@@ -23,23 +23,20 @@ class NextPageViewController: UIViewController {
     @IBOutlet weak var qrcodeLabel: UILabel!
     @IBOutlet weak var transportationLabel: UILabel!
     
-    var dataText: String!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         nextPageLabel.text = dataText
-        
+
         fetchItems()
         
     }
     
     @IBAction func clossesButton(_ sender: Any) {
-        self.dismiss(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func fetchItems(){
-        if let urlStr = URL_USER_LOGIN.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
+        if let urlStr = "http://192.168.90.113:8888/myProject/v1/getNextPageData.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
             let task = URLSession.shared.dataTask(with: url){ [self]
                 (data, response, error) in
                 
@@ -47,16 +44,30 @@ class NextPageViewController: UIViewController {
                     let decoder = JSONDecoder()
                     do {
                         self.studentItem = try decoder.decode([newtPageData].self, from: data)
-                        
-                        
-//
-//                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-//                        }
+                        let judge = studentItem
+                        let id = judge.map{$0.studentID}
+                        for studentid in id {
+                            if studentid == dataText {
+                                //print(judge[Int(dataText)!-1])
+                                let studentData = judge[Int(dataText)!-1]
+                                print(studentData)
+                                DispatchQueue.main.async {
+                                    self.nameLabel.text = studentData.studentName
+                                    self.departmentLabel.text = studentData.studentDepartment
+                                    self.gradeLabel.text = studentData.studentGrade
+                                    self.classLabel.text = studentData.studentClass
+                                    self.studentStatusLabel.text = studentData.studentStatus
+                                    self.qrcodeLabel.text = studentData.studentQRcode
+                                    self.transportationLabel.text = studentData.studentTransportation
+                                }
+                                
+                            }
+                            
+                        }
                     } catch  {
                         print(error)
                     }
-                  
+                    
                 } else {
                     print("no date")
                 }
@@ -64,30 +75,4 @@ class NextPageViewController: UIViewController {
             task.resume()
         }
     }
-    
-//    func fetchItems(){
-//        // 元件繫結
-//        // 取得我要的資料
-//        let parameters: Parameters=[
-//            "student_name":nameLabel.text!,
-//            "department_name":departmentLabel.text!,
-//            "grade_level":gradeLabel.text!,
-//            "class_name":classLabel.text!,
-//            "status_ing":studentStatusLabel.text!,
-//            "qrcode_ing":qrcodeLabel.text!,
-//            "transportation_name":transportationLabel.text!
-//        ]
-//    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

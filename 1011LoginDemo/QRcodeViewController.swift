@@ -45,20 +45,33 @@ class QRcodeViewController: UIViewController {
         callingScanner()
     }
     
-    
+    //跳頁，將資料帶過去
     @IBAction func doInquireButton(_ sender: Any) {
         
         dataText = outputlabel.text
-        print(dataText!)
-        performSegue(withIdentifier: "nextPageSegue", sender: nil)
+        performSegue(withIdentifier: "nextPageSegue", sender: self)
+        outputlabel.text = "QRCode"
     }
     
+    
     //Segue
+//    @IBSegueAction func nextpageSegue(_ coder: NSCoder) -> NextPageViewController? {
+//
+//        let controller = NextPageViewController(coder: coder)
+//                controller?.dataText = dataText
+//                return controller
+//    }
+    
+    
+    
     @IBSegueAction func nextpageSegue(_ coder: NSCoder) -> NextPageViewController? {
         let controller = NextPageViewController(coder: coder)
         controller?.dataText = dataText
         return controller
     }
+    
+    
+    
     
     
     //UIViewController即將消失的時候停用掃瞄器，可以防止在背景的時候還在掃描

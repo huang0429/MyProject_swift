@@ -14,6 +14,7 @@ struct newsSchema: Codable{
 }
 
 struct newtPageData: Codable{
+    var studentID: String
     var studentName: String
     var studentDepartment: String
     var studentGrade: String
@@ -21,4 +22,15 @@ struct newtPageData: Codable{
     var studentStatus: String
     var studentQRcode: String
     var studentTransportation: String
+    
+    enum CodingKeys: String, CodingKey {
+            case studentID = "student_ID"
+            case studentName = "student_name"
+            case studentDepartment = "department_name"
+            case studentGrade = "grade_level"
+            case studentClass = "class_name"
+            case studentStatus = "status_ing"
+            case studentQRcode = "qrcode_ing"
+            case studentTransportation = "transportation_name"
+        }
 }

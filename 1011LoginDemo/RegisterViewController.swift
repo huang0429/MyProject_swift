@@ -10,8 +10,8 @@ import Alamofire
 
 class RegisterViewController: UIViewController {
     //WebServer的網址，localhost要是數字型態
-    let URL_USER_REGISTER = "http://127.0.0.1:8080/LoginDemo/v1/register.php"
-
+    let URL_USER_REGISTER = "http://127.0.0.1/myProject/v1/register.php"
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -66,5 +66,9 @@ class RegisterViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
         self.dismiss(animated: false, completion: nil)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
