@@ -33,10 +33,11 @@ class NextPageViewController: UIViewController {
     
     @IBAction func clossesButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        
     }
     
     func fetchItems(){
-        if let urlStr = "http://192.168.90.113:8888/myProject/v1/getNextPageData.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
+        if let urlStr = "http://192.168.121.113:8888/myProject/v1/getNextPageData.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
             let task = URLSession.shared.dataTask(with: url){ [self]
                 (data, response, error) in
                 
@@ -48,9 +49,9 @@ class NextPageViewController: UIViewController {
                         let id = judge.map{$0.studentID}
                         for studentid in id {
                             if studentid == dataText {
-                                //print(judge[Int(dataText)!-1])
+                                
                                 let studentData = judge[Int(dataText)!-1]
-                                print(studentData)
+                                
                                 DispatchQueue.main.async {
                                     self.nameLabel.text = studentData.studentName
                                     self.departmentLabel.text = studentData.studentDepartment
@@ -60,9 +61,7 @@ class NextPageViewController: UIViewController {
                                     self.qrcodeLabel.text = studentData.studentQRcode
                                     self.transportationLabel.text = studentData.studentTransportation
                                 }
-                                
                             }
-                            
                         }
                     } catch  {
                         print(error)

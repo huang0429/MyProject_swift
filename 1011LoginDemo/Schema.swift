@@ -34,3 +34,7 @@ struct newtPageData: Codable{
             case studentTransportation = "transportation_name"
         }
 }
+
+struct getData {
+    var getId: String
+}

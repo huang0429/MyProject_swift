@@ -1,73 +1,48 @@
 //
-//  FirstTableViewController.swift
+//  TsearchResultableViewController.swift
 //  1011LoginDemo
 //
-//  Created by 黃筱珮 on 2022/10/18.
+//  Created by 黃筱珮 on 2022/10/26.
 //
 
 import UIKit
-import Foundation
 
-class FirstTableViewController: UITableViewController {
-    
-    var newsItem = [newsSchema]()
+class TsearchResultableViewController: UITableViewController {
+    var getDatas = [getData]()
+    var dataText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 150
+//        getDatas.append(getData(getId: dataText))
+//        print(getDatas)
+//        print("傳過來 : \(dataText!)")
+
+        getIdData()
         
-        fetchItems()
     }
-    //http://192.168.1.112:8080/myProject/v1/getnews.php    blu3387
-    //http://192.168.239.113:8080/myProject/v1/getnews.php  note20
-    func fetchItems(){
-        if let urlStr = "http://192.168.121.113:8888/myProject/v1/getnews.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
-            let task = URLSession.shared.dataTask(with: url){ [self]
-                (data, response, error) in
-                
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        self.newsItem = try decoder.decode([newsSchema].self, from: data)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    } catch  {
-                        print(error)
-                    }
-                  
-                } else {
-                    print("no date")
-                }
-            }
-            task.resume()
-        }
+    func getIdData() {
+        print("傳過來 : \(dataText!)")
+        getDatas.append(getData(getId: dataText))
+        print("送到陣列裡\(getDatas)")
+        dataText = ""
+        print(dataText!)
     }
-    
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return newsItem.count
+        return getDatas.count
     }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"\(FirstTableViewCell.self)" , for: indexPath) as? FirstTableViewCell
-        let news = newsItem[indexPath.row]
-        cell!.labelNewsID!.text = news.news_ID
-        cell!.labelNewsTitle.text = news.news_title
-        cell!.labelNewsDate.text = news.news_date
-
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(TsearchResulTableViewCell.self)", for: indexPath) as! TsearchResulTableViewCell
+        let id = getDatas[indexPath.row]
+        cell.studentIdLabel.text = id.getId
+        return cell
     }
-
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -51,6 +51,14 @@ class QRcodeViewController: UIViewController {
         dataText = outputlabel.text
         performSegue(withIdentifier: "nextPageSegue", sender: self)
         outputlabel.text = "QRCode"
+        
+        //帶資料過去
+        if let second = self.tabBarController?.viewControllers?[2] as? TsearchResultableViewController{
+            second.dataText = self.dataText!
+        }
+        print("QRcode : \(dataText!)")
+        //跳轉到第三個分頁
+        self.tabBarController?.selectedIndex = 1
     }
     
     
