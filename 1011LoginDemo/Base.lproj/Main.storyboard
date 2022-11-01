@@ -393,6 +393,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="關閉"/>
                                 <connections>
+                                    <action selector="closeButton:" destination="eNL-bE-3RE" eventType="touchUpInside" id="Y2J-Gl-XDG"/>
                                     <action selector="clossesButton:" destination="Tkb-hv-mk6" eventType="touchUpInside" id="Vyz-NA-Asv"/>
                                 </connections>
                             </button>
@@ -451,6 +452,13 @@
                     </view>
                     <connections>
                         <outlet property="TRidLabel" destination="XZP-dg-pZp" id="2se-wz-eXU"/>
+                        <outlet property="classDetialLbl" destination="paO-NP-9Eh" id="uLU-Yh-oP3"/>
+                        <outlet property="depDetialLbl" destination="GHb-BO-zVD" id="zDE-OE-VEH"/>
+                        <outlet property="gradeDetialLbl" destination="ixR-TQ-QPH" id="C82-Dj-LY1"/>
+                        <outlet property="nameDetialLbl" destination="P7S-1Z-7ax" id="pOg-8k-zcP"/>
+                        <outlet property="qrcodeDetialLbl" destination="sX7-o1-k7p" id="hE5-Cf-gm4"/>
+                        <outlet property="ssDetialLbl" destination="S79-Gz-BKP" id="IqQ-dc-X5M"/>
+                        <outlet property="transDetialLbl" destination="iKN-eT-n2M" id="UKo-R4-3mh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLZ-LZ-BDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
