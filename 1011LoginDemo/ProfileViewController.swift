@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var labelUserName: UILabel!
     
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //隱藏navigation的返回按鈕

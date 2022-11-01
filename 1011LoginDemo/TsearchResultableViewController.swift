@@ -9,23 +9,17 @@ import UIKit
 
 class TsearchResultableViewController: UITableViewController {
     var getDatas = [getData]()
-    var dataText: String!
+    var dataText: String! {
+        didSet {
+            getDatas.insert(getData(getId: dataText), at: 0)
+            print("送到陣列裡1\(getDatas)")
+            tableView.reloadData()
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getDatas.append(getData(getId: dataText))
-//        print(getDatas)
-//        print("傳過來 : \(dataText!)")
-
-        getIdData()
-        
-    }
-    func getIdData() {
-        print("傳過來 : \(dataText!)")
-        getDatas.append(getData(getId: dataText))
-        print("送到陣列裡\(getDatas)")
-        dataText = ""
-        print(dataText!)
     }
 
     // MARK: - Table view data source
@@ -43,7 +37,9 @@ class TsearchResultableViewController: UITableViewController {
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -79,14 +75,28 @@ class TsearchResultableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "showDetail"){
+            
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let indexPath = self.tableView.indexPathForSelectedRow
+                let tableViewDetail = segue.destination as? TRDetialViewController
+                let selectedShape = getDatas[indexPath!.row]
+                tableViewDetail?.selectedShape = selectedShape
+                self.tableView.deselectRow(at: indexPath!, animated: true)
+            }
+            
+            
+            
+        }
     }
-    */
+    
 
 }
