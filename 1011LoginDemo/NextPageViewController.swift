@@ -30,7 +30,7 @@ class NextPageViewController: UIViewController {
     }
     
     @IBAction func clossesButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         
     }
     func fetchItems(){
@@ -46,7 +46,6 @@ class NextPageViewController: UIViewController {
                         let id = judge.map{$0.studentID}
                         for studentid in id {
                             if studentid == dataText {
-                                print(dataText)
                                 
                                 let studentData = judge[Int(dataText)!-1]
                                 

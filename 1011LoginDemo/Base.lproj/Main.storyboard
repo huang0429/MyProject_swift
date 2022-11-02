@@ -246,7 +246,7 @@
         <!--說明-->
         <scene sceneID="3EN-ke-2Un">
             <objects>
-                <viewController id="eJK-iF-scC" sceneMemberID="viewController">
+                <viewController id="eJK-iF-scC" customClass="CaptionViewController" customModule="_011LoginDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aTk-P3-FBg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
