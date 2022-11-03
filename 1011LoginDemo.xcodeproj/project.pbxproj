@@ -105,12 +105,12 @@
 				B47F14A72909457E00D7FED7 /* TsearchResultableViewController.swift */,
 				B47F14A929094DA400D7FED7 /* TsearchResulTableViewCell.swift */,
 				B47F15DC290FE5A800D7FED7 /* TRDetialViewController.swift */,
+				B47F160729121AAA00D7FED7 /* CaptionViewController.swift */,
 				B48531FF28FF932300023E86 /* Schema.swift */,
 				B404046128F51E37006F5669 /* Main.storyboard */,
 				B404046428F51E37006F5669 /* Assets.xcassets */,
 				B404046628F51E37006F5669 /* LaunchScreen.storyboard */,
 				B404046928F51E37006F5669 /* Info.plist */,
-				B47F160729121AAA00D7FED7 /* CaptionViewController.swift */,
 			);
 			path = 1011LoginDemo;
 			sourceTree = "<group>";
