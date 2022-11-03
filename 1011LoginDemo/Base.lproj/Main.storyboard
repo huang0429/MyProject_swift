@@ -807,6 +807,7 @@
                                     <outlet property="labelNewsDate" destination="lWh-Xs-ZqH" id="tgl-6f-k8r"/>
                                     <outlet property="labelNewsID" destination="n3l-h4-ktW" id="guM-4u-mvK"/>
                                     <outlet property="labelNewsTitle" destination="5Ow-8L-aig" id="7Qe-V3-hPC"/>
+                                    <segue destination="P8J-Qe-r7Z" kind="show" identifier="FirstShowDetail" id="lhV-WU-31k"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -820,6 +821,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCg-pT-cey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3790.7692307692305" y="-471.32701421800948"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fwl-aG-Mlx">
+            <objects>
+                <viewController id="P8J-Qe-r7Z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8tK-QL-DEY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HuangSP_20221102_180657" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-op-nsV">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="860"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4bT-Ms-R6L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KIn-il-4Iu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDV-zG-znn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4667.6923076923076" y="-471.32701421800948"/>
         </scene>
     </scenes>
     <resources>
