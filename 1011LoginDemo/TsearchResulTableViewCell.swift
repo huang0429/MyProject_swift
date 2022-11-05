@@ -11,8 +11,6 @@ class TsearchResulTableViewCell: UITableViewCell {
 
     @IBOutlet weak var studentIdLabel: UILabel!
     
-    
-        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

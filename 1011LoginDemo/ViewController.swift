@@ -53,9 +53,6 @@ class ViewController: UIViewController {
         // 發出post請求
         Alamofire.request(URL_USER_LOGIN, method: .post, parameters: parameters ).responseJSON{
             response in
-            
-            print(response)
-            
             // 從web server 獲取json值
             if let result = response.result.value {
                 let jsonData = result as! NSDictionary

@@ -19,6 +19,7 @@
 		B47F14AA29094DA400D7FED7 /* TsearchResulTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F14A929094DA400D7FED7 /* TsearchResulTableViewCell.swift */; };
 		B47F15DD290FE5A800D7FED7 /* TRDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F15DC290FE5A800D7FED7 /* TRDetialViewController.swift */; };
 		B47F160829121AAA00D7FED7 /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F160729121AAA00D7FED7 /* CaptionViewController.swift */; };
+		B47F160A2913AE4B00D7FED7 /* NewsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F16092913AE4B00D7FED7 /* NewsContentViewController.swift */; };
 		B48531FE28FE6F7A00023E86 /* FirstTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48531FD28FE6F7A00023E86 /* FirstTableViewController.swift */; };
 		B485320028FF932300023E86 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48531FF28FF932300023E86 /* Schema.swift */; };
 		B485320228FF96C500023E86 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B485320128FF96C500023E86 /* FirstTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		B47F14A929094DA400D7FED7 /* TsearchResulTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsearchResulTableViewCell.swift; sourceTree = "<group>"; };
 		B47F15DC290FE5A800D7FED7 /* TRDetialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRDetialViewController.swift; sourceTree = "<group>"; };
 		B47F160729121AAA00D7FED7 /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
+		B47F16092913AE4B00D7FED7 /* NewsContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContentViewController.swift; sourceTree = "<group>"; };
 		B48531FD28FE6F7A00023E86 /* FirstTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewController.swift; sourceTree = "<group>"; };
 		B48531FF28FF932300023E86 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 		B485320128FF96C500023E86 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				B404046F28F52008006F5669 /* ProfileViewController.swift */,
 				B48531FD28FE6F7A00023E86 /* FirstTableViewController.swift */,
 				B485320128FF96C500023E86 /* FirstTableViewCell.swift */,
+				B47F16092913AE4B00D7FED7 /* NewsContentViewController.swift */,
 				B485320529025EC800023E86 /* QRcodeViewController.swift */,
 				B48532072902619000023E86 /* NextPageViewController.swift */,
 				B47F14A72909457E00D7FED7 /* TsearchResultableViewController.swift */,
@@ -253,6 +256,7 @@
 				B404045E28F51E37006F5669 /* SceneDelegate.swift in Sources */,
 				B48531FE28FE6F7A00023E86 /* FirstTableViewController.swift in Sources */,
 				B485320228FF96C500023E86 /* FirstTableViewCell.swift in Sources */,
+				B47F160A2913AE4B00D7FED7 /* NewsContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

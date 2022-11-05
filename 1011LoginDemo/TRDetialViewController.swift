@@ -27,6 +27,7 @@ class TRDetialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         TRidLabel.text = selectedShape.getId
+        print(selectedShape.getId)
         dataItem()
     }
     
@@ -45,7 +46,7 @@ class TRDetialViewController: UIViewController {
                         self.studentItem = try decoder.decode([newtPageData].self, from: data)
                         let judge = studentItem
                         let id = judge.map{$0.studentID}
-                        print("有到這嗎？3")
+                        
                         for studentid in id {
                             
                             if studentid == selectedShape.getId {
@@ -59,7 +60,6 @@ class TRDetialViewController: UIViewController {
                                     self.ssDetialLbl.text = studentData.studentStatus
                                     self.qrcodeDetialLbl.text = studentData.studentQRcode
                                     self.transDetialLbl.text = studentData.studentTransportation
-                                    
                                 }
                             }
                         }

@@ -48,8 +48,6 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func goButton(_ sender: Any) {
-        
-        
-        
+       
     }
 }

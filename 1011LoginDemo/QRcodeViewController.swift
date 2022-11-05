@@ -78,10 +78,6 @@ class QRcodeViewController: UIViewController {
         return controller
     }
     
-    
-    
-    
-    
     //UIViewController即將消失的時候停用掃瞄器，可以防止在背景的時候還在掃描
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

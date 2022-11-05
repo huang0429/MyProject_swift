@@ -12,15 +12,15 @@ class FirstTableViewController: UITableViewController {
     
     var newsItem = [newsSchema]()
     
+    var newsIdData:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 150
         
-        
         fetchItems()
     }
-    //http://192.168.1.112:8080/myProject/v1/getnews.php    blu3387
-    //http://192.168.239.113:8080/myProject/v1/getnews.php  note20
+
     func fetchItems(){
         if let urlStr = "http://192.168.121.113:8888/myProject/v1/getnews.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
             let task = URLSession.shared.dataTask(with: url){ [self]
@@ -105,14 +105,21 @@ class FirstTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "FirstShowDetail"){
+            if tableView.indexPathForSelectedRow != nil{
+                let indexPath = self.tableView.indexPathForSelectedRow
+                let tableViewDetail = segue.destination as? NewsContentViewController
+                let selectedShape = newsItem[indexPath!.row]
+                tableViewDetail?.selected = selectedShape
+                self.tableView.deselectRow(at: indexPath!, animated: true)
+            }
+        }
     }
-    */
+    
 
 }

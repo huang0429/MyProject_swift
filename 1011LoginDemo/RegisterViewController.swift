@@ -42,8 +42,6 @@ class RegisterViewController: UIViewController {
         // 發佈請求http post
         Alamofire.request(URL_USER_REGISTER, method: .post, parameters: parameters).responseJSON { [self]
             response in
-            print(response)
-            
             //從WebServer取得json值
             if let result = response.result.value{
                 //將其轉為 NSDictionary

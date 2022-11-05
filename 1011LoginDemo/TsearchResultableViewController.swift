@@ -84,19 +84,13 @@ class TsearchResultableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         if(segue.identifier == "showDetail"){
-            
-            if let indexPath = tableView.indexPathForSelectedRow{
+            if tableView.indexPathForSelectedRow != nil{
                 let indexPath = self.tableView.indexPathForSelectedRow
                 let tableViewDetail = segue.destination as? TRDetialViewController
                 let selectedShape = getDatas[indexPath!.row]
                 tableViewDetail?.selectedShape = selectedShape
                 self.tableView.deselectRow(at: indexPath!, animated: true)
             }
-            
-            
-            
         }
     }
-    
-
 }
