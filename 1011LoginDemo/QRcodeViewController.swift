@@ -17,6 +17,7 @@ class QRcodeViewController: UIViewController {
     @IBOutlet weak var outputlabel: UILabel!
     
     var dataText: String!
+    var scanning: String!
     
     // 管理相機擷取的輸入輸出
     var captureSession: AVCaptureSession?
@@ -47,6 +48,8 @@ class QRcodeViewController: UIViewController {
     
     //跳頁，將資料帶過去
     @IBAction func doInquireButton(_ sender: Any) {
+        let date = Date().date2String(dateFormat: "yyyy/MM/dd HH:mm")
+        scanning = date
         
         dataText = outputlabel.text
         performSegue(withIdentifier: "nextPageSegue", sender: self)
@@ -55,8 +58,12 @@ class QRcodeViewController: UIViewController {
         //帶資料過去
         if let second = self.tabBarController?.viewControllers?[2] as? TsearchResultableViewController{
             second.dataText = self.dataText!
+            second.scanning = self.scanning!
+            
+            
         }
         print("QRcode : \(dataText!)")
+        print(scanning!)
         //跳轉到第三個分頁
         self.tabBarController?.selectedIndex = 1
     }
@@ -244,3 +251,15 @@ extension QRcodeViewController:AVCaptureMetadataOutputObjectsDelegate
     }
 }
 
+extension Date {
+    //日期 -> 字符
+    func date2String(dateFormat:String) -> String {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(identifier:"Asia/Taipei")
+        formatter.locale = Locale.init(identifier: "zh_Hant_TW")
+        formatter.dateFormat = dateFormat
+        let date = formatter.string(from: self)
+        return date
+    }
+}

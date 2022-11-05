@@ -9,17 +9,20 @@ import UIKit
 
 class TsearchResultableViewController: UITableViewController {
     var getDatas = [getData]()
+    
+    var scanning: String! //時間
+    
     var dataText: String! {
         didSet {
             getDatas.insert(getData(getId: dataText), at: 0)
-            print("送到陣列裡1\(getDatas)")
+            //print("送到陣列裡1\(getDatas)")
             tableView.reloadData()
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 100
     }
 
     // MARK: - Table view data source
@@ -34,6 +37,8 @@ class TsearchResultableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(TsearchResulTableViewCell.self)", for: indexPath) as! TsearchResulTableViewCell
         let id = getDatas[indexPath.row]
         cell.studentIdLabel.text = id.getId
+        let dateTime = scanning
+        cell.scanningDateLabel.text = dateTime
         return cell
     }
     

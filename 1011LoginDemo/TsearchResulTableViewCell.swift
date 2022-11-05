@@ -10,6 +10,7 @@ import UIKit
 class TsearchResulTableViewCell: UITableViewCell {
 
     @IBOutlet weak var studentIdLabel: UILabel!
+    @IBOutlet weak var scanningDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
