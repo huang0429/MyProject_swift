@@ -31,7 +31,6 @@ class NextPageViewController: UIViewController {
     
     @IBAction func clossesButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        
     }
     func fetchItems(){
         if let urlStr = "http://192.168.121.113:8888/myProject/v1/getNextPageData.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
@@ -49,7 +48,7 @@ class NextPageViewController: UIViewController {
                                 
                                 let studentData = judge[Int(dataText)!-1]
                                 
-                                DispatchQueue.main.async {
+                                DispatchQueue.main.async { [self] in
                                     self.nameLabel.text = studentData.studentName
                                     self.departmentLabel.text = studentData.studentDepartment
                                     self.gradeLabel.text = studentData.studentGrade

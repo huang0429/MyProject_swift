@@ -17,7 +17,8 @@ class QRcodeViewController: UIViewController {
     @IBOutlet weak var outputlabel: UILabel!
     
     var dataText: String!
-    var scanning: String!
+    var scanning: String! //掃描時間
+//    var statusData: String! //學生狀態
     
     // 管理相機擷取的輸入輸出
     var captureSession: AVCaptureSession?
@@ -55,12 +56,10 @@ class QRcodeViewController: UIViewController {
         performSegue(withIdentifier: "nextPageSegue", sender: self)
         outputlabel.text = "QRCode"
         
-        //帶資料過去
+        //帶資料過去 TsearchResultableViewController.swift
         if let second = self.tabBarController?.viewControllers?[2] as? TsearchResultableViewController{
             second.dataText = self.dataText!
-            second.scanning = self.scanning!
-            
-            
+            second.scanning = self.scanning! //時間
         }
         print("QRcode : \(dataText!)")
         print(scanning!)

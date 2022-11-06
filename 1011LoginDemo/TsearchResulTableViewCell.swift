@@ -12,6 +12,9 @@ class TsearchResulTableViewCell: UITableViewCell {
     @IBOutlet weak var studentIdLabel: UILabel!
     @IBOutlet weak var scanningDateLabel: UILabel!
     
+    @IBOutlet weak var qrcodeLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

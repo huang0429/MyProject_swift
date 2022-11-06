@@ -44,7 +44,6 @@ class NewsContentViewController: UIViewController {
                                     self.newsTitleLabel.text = newsData.news_title
                                     self.dateLabel.text = newsData.news_date
                                     self.contentLabel.text = newsData.news_content
-
                                 }
                             }
                         }

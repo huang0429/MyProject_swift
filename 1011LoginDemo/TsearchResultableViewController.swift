@@ -8,14 +8,16 @@
 import UIKit
 
 class TsearchResultableViewController: UITableViewController {
-    var getDatas = [getData]()
+    var getDatas = [getData]() //存學生 id
     
-    var scanning: String! //時間
+    var studentItem = [newtPageData]() //取學生資料
+    
+    var scanning: String! //掃描時間
     
     var dataText: String! {
         didSet {
             getDatas.insert(getData(getId: dataText), at: 0)
-            //print("送到陣列裡1\(getDatas)")
+            print("送到陣列裡1\(getDatas)")
             tableView.reloadData()
         }
     }
@@ -23,8 +25,33 @@ class TsearchResultableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        fetchItems()
     }
 
+    func fetchItems(){
+        if let urlStr = "http://192.168.121.113:8888/myProject/v1/getNextPageData.php".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
+            let task = URLSession.shared.dataTask(with: url){ [self]
+                (data, response, error) in
+                
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        
+                        self.studentItem = try decoder.decode([newtPageData].self, from: data)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } catch  {
+                        print(error)
+                    }
+                    
+                } else {
+                    print("no date")
+                }
+            }
+            task.resume()
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,8 +64,16 @@ class TsearchResultableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(TsearchResulTableViewCell.self)", for: indexPath) as! TsearchResulTableViewCell
         let id = getDatas[indexPath.row]
         cell.studentIdLabel.text = id.getId
+        //將時間帶過來
         let dateTime = scanning
         cell.scanningDateLabel.text = dateTime
+        
+        //將學生狀態帶過來
+        let studentStatus = studentItem[indexPath.row]
+        cell.statusLabel.text = studentStatus.studentStatus
+        cell.qrcodeLabel.text = studentStatus.studentQRcode
+        print(studentItem)
+
         return cell
     }
     

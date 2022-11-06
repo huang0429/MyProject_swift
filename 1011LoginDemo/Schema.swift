@@ -12,13 +12,6 @@ struct newsSchema: Codable{
     var news_title: String
     var news_date: String
     var news_content: String
-    
-//    enum CodingKeys: String, CodingKey {
-//            case newsID = "news_ID"
-//            case newsTitle = "news_title"
-//            case newsDate = "news_date"
-//            case newsContent = "news_content"
-//        }
 }
 
 struct newtPageData: Codable{
@@ -46,3 +39,4 @@ struct newtPageData: Codable{
 struct getData {
     var getId: String
 }
+
